@@ -1,6 +1,3 @@
 public enum HazzardType {
-    Brittle,
-    Flammable,
-    Poisonous,
-    NonHazzardous
+    Brittle, Flammable, Poisonous, NonHazzardous
 }
