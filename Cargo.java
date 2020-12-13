@@ -1,5 +1,3 @@
-import java.util.List;
-
 public class Cargo {
     private String id = "CG64";
     private Integer volume;

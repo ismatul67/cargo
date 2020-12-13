@@ -3,36 +3,37 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) throws NumberFormatException, IOException {
         List<Cargo> cargos = new ArrayList<>();
 
-        Scanner s = new Scanner(System.in);
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("==Cargo Manager==");
         if (cargos.size() < 1) {
             System.out.println("Cargo is empty!");
         }
-        int choose = 0;
-        try {
 
-            while (choose < 5) {
+        char choose=' ';
+            while (choose != '5') {
                 menu();
                 System.out.print("enter: ");
-                choose = s.nextInt();
+                choose = br.readLine().charAt(0);
 
-                if (choose == 1) {
+                if (choose == '1') {
                     String id = "";
                     int volume = 0;
                     String contents = "";
                     String hazzard = "";
                     String hazzardous = "";
                     while (volume <= 0) {
+                        try {
                         System.out.print("input volume [must be more than 0]: ");
                         volume = Integer.parseInt(br.readLine());
+                       } catch (Exception e) {
+                           System.out.println("Input number only!");
+                       }
                     }
 
                     if (volume > 0) {
@@ -84,7 +85,7 @@ public class Main {
 
                     }
 
-                } else if (choose == 2) {
+                } else if (choose == '2') {
                     if (cargos.size() > 0) {
                         String cargoId = "";
                         System.out.println("your Cargo");
@@ -126,7 +127,7 @@ public class Main {
                     } else {
                         System.out.println("Cargo is empty!");
                     }
-                } else if (choose == 3) {
+                } else if (choose == '3') {
 
                     if (cargos.size() > 0) {
                         String shipId = "";
@@ -150,7 +151,7 @@ public class Main {
                         System.out.println("Cargo is empty!");
                     }
 
-                } else if (choose == 4) {
+                } else if (choose == '4') {
                     System.out.println("List of Cargos");
                     System.out.println("======================");
                     if (cargos.size() > 0) {
@@ -160,16 +161,14 @@ public class Main {
                     } else {
                         System.out.println("There is no cargo!");
                     }
-                } else if (choose == 5) {
+                } else if (choose == '5') {
                     System.out.println("you are quit!");
-                    s.close();
+                    br.close();
                 }
 
             }
-        } catch (Exception e) {
-            System.out.println("Wrong input!");
-        }
-    }
+        } 
+
 
     public static void menu() {
         System.out.println("1. Add cargo");
