@@ -186,12 +186,4 @@ public class Main {
         System.out.println("HazardType = " + newCargo.getHazzard());
         System.out.println("======================");
     }
-
-    public static void shipCargo(Cargo cargo, String id) {
-        if (id.equals(cargo.getId())) {
-            System.out.println("Cargo is been shipped");
-        } else {
-            System.out.println("ID is not exist");
-        }
-    }
 }
